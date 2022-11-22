@@ -1,0 +1,57 @@
+{#{% load static %}#}
+{#<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">#}
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    #navbar {
+        font-family: Arial;
+        color: lightgray;
+        background-color: black;
+        text-align: center;
+        padding: 25px;
+        position: relative;
+    }
+
+    .logo {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .footer-item {
+        margin: 0 10px;
+    }
+
+    #current-page {
+        color: mediumpurple;
+    }
+
+    #searchbar {
+        padding: 10px;
+        border: lightgrey solid 1px;
+        border-radius: 20px;
+        background: transparent;
+        color: lightgray;
+        margin-right: 100px;
+    }
+
+    #navbar-download-button {
+        padding: 10px;
+        border-radius: 20px;
+        background: mediumpurple;
+    }
+
+</style>
+
+<div id="navbar">
+    <h1 class="logo">Logo</h1>
+    <a class="navbar-item" id="current-page">Sklep</a>
+    <a class="navbar-item">Aktualności</a>
+    <a class="navbar-item">Moje gry</a>
+    <a class="navbar-item">O nas</a>
+    <input type="text" placeholder="Search" class="navbar-item" id="searchbar">
+    <a class="navbar-item">Zaloguj się</a>
+    <a class="navbar-item" id="navbar-download-button">Download PDŁ</a>
+</div>
