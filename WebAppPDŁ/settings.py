@@ -79,8 +79,16 @@ WSGI_APPLICATION = 'WebAppPDŁ.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'PDL',
+        'USER': 'adminpdl',
+        'PASSWORD': 'Minecrafte123',
+        'HOST': 'pdl.database.windows.net',
+        'PORT': '',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
     }
 }
 

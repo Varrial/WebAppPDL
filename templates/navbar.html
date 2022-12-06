@@ -8,6 +8,7 @@
 
     #navbar {
         font-family: Arial;
+        font-size: 16px;
         color: lightgray;
         background-color: black;
         text-align: center;
@@ -20,38 +21,69 @@
         margin: 0 10px;
     }
 
-    .footer-item {
+    .navbar-item {
         margin: 0 10px;
+        text-decoration: none;
+        color: lightgray;
     }
 
     #current-page {
         color: mediumpurple;
     }
 
-    #searchbar {
+    #searchbar-container {
+        width: 10em;
         padding: 10px;
         border: lightgrey solid 1px;
         border-radius: 20px;
+        margin-right: 100px;
+    }
+
+    #searchbar-container input {
+        font-size: 16px;
         background: transparent;
         color: lightgray;
-        margin-right: 100px;
+        outline: none;
+    }
+
+    #searchbar-container button {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: none;
+    {% load static %}
+        background: url("{% static 'icons8-search-30.png' %}") no-repeat;
+    }
+
+    #searchbar-container form {
+        display: inline-block;
     }
 
     #navbar-download-button {
         padding: 10px;
         border-radius: 20px;
         background: mediumpurple;
+        background-size: 30px;
     }
 
 </style>
 
 <div id="navbar">
-    <h1 class="logo">Logo</h1>
-    <a class="navbar-item" id="current-page">Sklep</a>
-    <a class="navbar-item">Aktualności</a>
-    <a class="navbar-item">Moje gry</a>
-    <a class="navbar-item">O nas</a>
-    <input type="text" placeholder="Search" class="navbar-item" id="searchbar">
-    <a class="navbar-item">Zaloguj się</a>
+    <h1 class="logo">PDŁ</h1>
+    <a href="{% url 'home' %}" class="navbar-item" {% if request.resolver_match.view_name == 'home' %} id="current-page" {% endif %}>Sklep</a>
+    <a href="{% url 'news' %}" class="navbar-item" {% if request.resolver_match.view_name == 'news' %} id="current-page" {% endif %}>Aktualności</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'my-game' %}" class="navbar-item" {% if request.resolver_match.view_name == 'my-game' %} id="current-page" {% endif %}>Moje gry</a>
+    {% endif %}
+
+    <a href="{% url 'about-us' %}" class="navbar-item" {% if request.resolver_match.view_name == 'about-us' %} id="current-page" {% endif %}>O nas</a>
+    <span id="searchbar-container">
+        <form method="post">
+            <input id="searchbar-input" type="text" id="searchbar" placeholder="Wyszukaj" name="q">
+            <button id="searchbar-button">.</button>
+        </form>
+    </span>
+    <a href="{% url 'login' %}" class="navbar-item" {% if request.resolver_match.view_name == 'login' %} id="current-page" {% endif %}>Zaloguj się</a>
     <a class="navbar-item" id="navbar-download-button">Download PDŁ</a>
 </div>
