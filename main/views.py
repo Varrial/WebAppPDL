@@ -25,3 +25,12 @@ def search(response):
     }
 
     return render(response, "main/search.html", context)
+
+def contact(response):
+    return render(response, "main/main.html", {})
+
+def faq(response):
+    return render(response, "main/main.html", {})
+
+def support(response):
+    return render(response, "main/main.html", {})
