@@ -37,12 +37,17 @@
         background: mediumpurple;
     }
 
+    #logo-footer a {
+        text-decoration: none;
+        color: lightgray;
+    }
+
 </style>
 
 {% load static %}
 
 <div id="footer">
-    <h1 class="footer-item" id="logo-footer">PDŁ</h1>
+    <h1 class="footer-item" id="logo-footer"><a href="{% url 'home' %}">PDŁ</a></h1>
     <a href="{% url 'contact' %}" class="footer-item">Kontakt</a>
     <a href="{% url 'faq' %}" class="footer-item">FAQ</a>
     <a href="{% url 'support' %}" class="footer-item">Support</a>
