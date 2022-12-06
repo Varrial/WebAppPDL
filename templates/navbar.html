@@ -21,6 +21,11 @@
         margin: 0 10px;
     }
 
+    .logo a{
+        text-decoration: none;
+        color: lightgray;
+    }
+
     .navbar-item {
         margin: 0 10px;
         text-decoration: none;
@@ -69,7 +74,7 @@
 </style>
 
 <div id="navbar">
-    <h1 class="logo">PDŁ</h1>
+    <h1 class="logo"><a href="{% url 'home' %}">PDŁ</a></h1>
     <a href="{% url 'home' %}" class="navbar-item" {% if request.resolver_match.view_name == 'home' %} id="current-page" {% endif %}>Sklep</a>
     <a href="{% url 'news' %}" class="navbar-item" {% if request.resolver_match.view_name == 'news' %} id="current-page" {% endif %}>Aktualności</a>
 
@@ -79,11 +84,12 @@
 
     <a href="{% url 'about-us' %}" class="navbar-item" {% if request.resolver_match.view_name == 'about-us' %} id="current-page" {% endif %}>O nas</a>
     <span id="searchbar-container">
-        <form method="post">
-            <input id="searchbar-input" type="text" id="searchbar" placeholder="Wyszukaj" name="q">
+        <form action="{% url 'home' %}">
+            <input id="searchbar-input" type="text" id="searchbar" placeholder="Wyszukaj" name="q" value="{{ q }}">
             <button id="searchbar-button">.</button>
         </form>
     </span>
+{#    <input type="text" placeholder="Search" class="navbar-item" id="searchbar">#}
     <a href="{% url 'login' %}" class="navbar-item" {% if request.resolver_match.view_name == 'login' %} id="current-page" {% endif %}>Zaloguj się</a>
     <a class="navbar-item" id="navbar-download-button">Download PDŁ</a>
 </div>
