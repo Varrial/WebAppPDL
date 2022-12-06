@@ -7,4 +7,5 @@ urlpatterns = [
     path('news/', views.news, name='news'),
     path('my-game/', views.my_game, name='my-game'),
     path('about-us/', views.about_us, name='about-us'),
+    path('search/', views.search, name='search'),
 ]

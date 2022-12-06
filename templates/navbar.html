@@ -84,7 +84,7 @@
 
     <a href="{% url 'about-us' %}" class="navbar-item" {% if request.resolver_match.view_name == 'about-us' %} id="current-page" {% endif %}>O nas</a>
     <span id="searchbar-container">
-        <form action="{% url 'home' %}">
+        <form action="{% url 'search' %}">
             <input id="searchbar-input" type="text" id="searchbar" placeholder="Wyszukaj" name="q" value="{{ q }}">
             <button id="searchbar-button">.</button>
         </form>
